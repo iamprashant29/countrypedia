@@ -1,0 +1,50 @@
+<div class="main-container">
+  <div class="header">
+    <div [formGroup]="searchForm">
+      <mat-form-field appearance="fill" floatLabel="never">
+        <mat-label>Search for a country</mat-label>
+        <input matInput formControlName="searchTerm" />
+        <mat-icon matPrefix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="list-container">
+    <div class="list-item" *ngFor="let country of countriesList; let i = index;">
+      <mat-card>
+        <img mat-card-image src="{{country['flags']['png']}}" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <div class="row-value">
+            <strong>{{country?.name.common }}</strong>
+          </div>
+          <div class="country-info">
+            <div>
+            <span class="row-label">
+              Capital:
+            </span>
+              <span class="row-value">
+              {{ country?.capital ? country?.capital[0] : '' }}
+            </span>
+            </div>
+            <div>
+            <span class="row-label">
+              Population:
+            </span>
+              <span class="row-value">
+              {{ country?.population }}
+            </span>
+            </div>
+            <div>
+            <span class="row-label">
+              Region:
+            </span>
+              <span class="row-value">
+              {{ country?.region }}
+            </span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
